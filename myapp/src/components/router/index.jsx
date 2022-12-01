@@ -40,29 +40,36 @@ import {
      
     
     return(
+      <>
+      <div className="userName"><h3>{state?.user?.firstName} {state?.user?.lastName}</h3>
+
+      </div>
          <div className="navbar">
-           {(state.isLogin === true)? 
-          <>
+            {(state.isLogin === true)? 
+          <div>
           <ul>
               <li>
-            <Link to="/recipe">recipe</Link> </li>
-            <li><Link  className="logout" onClick={logoutHandler}>logout</Link></li>
+            <Link to="/recipe">Recipe</Link> </li>
+           <li> <Link to="/">home</Link> </li>
+            <li><Link to= "/"  className="logout" onClick={logoutHandler}>logout</Link></li>
             
           
           </ul>
-          </> 
+          </div>
+          
           : null
           }
          
 
          {(state.isLogin === false)? 
-         <>
+         <div>
          <ul>
           <li><Link to="/signup">Signup</Link></li>
           <li><Link to="/login">Login</Link></li>
+   
 
          </ul>
-         </>
+         </div>
          :
          null
          }
@@ -70,28 +77,29 @@ import {
          
 
         
-        
        
-        {/* // <div>
-        //   <ul>
-        //     <li>
-        //      <NavLink to="/">signup  </NavLink>
+         {/* <div>
+           <ul>
+             <li>
+              <Link to="/">signup  </Link>
           
          
 
 
-        //     </li>
-        //     <li>
-        //     <NavLink to="/login">login </NavLink>
-        //     </li>
-        //     <li>
-        //     <NavLink to="/recipe">recipe </NavLink>
-        //     </li>
-        //   </ul>
+           </li>
+            <li>
+         <Link to="/login">login </Link>
+            </li>
+             <li>
+            <Link to="/recipe">recipe </Link>
+            </li>
+            <li><Link  className="logout" onClick={logoutHandler}>logout</Link></li>
+          </ul>
 
-        // </div> */}
+        </div> */}
 
         </div>
+        </>
     )
   }
 

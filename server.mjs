@@ -222,6 +222,17 @@ app.use(function (req, res, next) {
     });
 })
 
+app.get("/profile", async (req, res) => { //this part is used jb pg refresh bhi kren or data show ho
+
+    try {
+        let user = await userModel.findOne({ _id: req.body.token._id }).exec();
+        res.send(user);  //user means single user ye reducer wala nh h
+
+    } catch (error) {
+        res.status(500).send({ message: "error getting users" });
+    }
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

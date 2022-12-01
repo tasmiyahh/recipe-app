@@ -49,6 +49,32 @@ image{
  height: 100%;
 }
 
+@media only screen and (max-width: 600px) {
+    .recipe{
+        border: 1px solid #F9EDD8;
+        background-color: #F9EDD8;
+        width: 100%;
+        margin: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-family: monospace;
+        
+       
+        
+    }
+    image{
+        width: 100px;
+       }
+
+       .ingredients{
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+    }
+       
+  }
+
 
 
 
