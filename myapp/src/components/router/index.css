@@ -1,0 +1,23 @@
+.navbar>ul{
+    display: flex;
+    justify-content: center;
+}
+
+ul>li{
+    list-style: none;
+    padding: 10px;
+    text-decoration: none;
+   
+}
+
+li>a{
+    color:black;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+a:hover{
+    color: black;
+    cursor: pointer;
+}
+

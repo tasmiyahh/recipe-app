@@ -12,8 +12,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import { useContext } from 'react';
+import { GlobalContext } from '../../context';
 
 function Copyright(props) {
+
+
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -29,6 +34,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const {state , dispatch} = useContext(GlobalContext)
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -36,6 +42,30 @@ export default function Login() {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    axios.post("http://localhost:5000/login", {
+      email : data.get('email'),
+      password : data.get('password')
+     }, {withCredentials:true})
+     .then(function (response) {
+       console.log("response:" ,response.data);
+       alert(response.data.message);
+
+       dispatch(  // ye dispatch profile kliye use hoga ta k data show ho login ka
+       {
+         type : "USER_LOGIN",
+         payload : response.data.profile
+       })
+ 
+
+       
+       
+       
+     })
+     .catch(function (error) {
+       console.log("error in api call" , error.message);
+       alert(error.response.data.message)
+     });
   };
 
   return (
@@ -54,7 +84,7 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+           Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
