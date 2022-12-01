@@ -12,12 +12,13 @@ ul>li{
 
 li>a{
     color:black;
+    
     text-decoration: none;
     text-transform: capitalize;
 }
 
 a:hover{
-    color: black;
+    color: red;
     cursor: pointer;
 }
 

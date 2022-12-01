@@ -1,0 +1,9 @@
+h1{
+background-color: black;
+color: white;
+text-align: center;
+}
+
+.home{
+    background-image: url(../../asset/recipe4.jpg);
+}
